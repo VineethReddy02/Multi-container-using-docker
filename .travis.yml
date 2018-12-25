@@ -9,10 +9,10 @@ script:
   - docker run VineethReddy02/Docker-test npm test -- --coverage
 
 after_success:
-  - docker build -t VineethReddy02/multi-client ./client
-  - docker build -t VineethReddy02/multi-nginx ./nginx
-  - docker build -t VineethReddy02/multi-server ./server
-  - docker build -t VineethReddy02/multi-worker ./worker
+  - docker build -t Vineeth97/multi-client ./client
+  - docker build -t Vineeth97/multi-nginx ./nginx
+  - docker build -t Vineeth97/multi-server ./server
+  - docker build -t Vineeth97/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
