@@ -3,20 +3,20 @@ services:
     - docker
 
 before_install:
-  - docker build -t VineethReddy02/Docker-test -f ./client/Dockerfile.dev ./client
+  - docker build -t vineeth97/Docker-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run VineethReddy02/Docker-test npm test -- --coverage
+  - docker run vineeth97/Docker-test npm test -- --coverage
 
 after_success:
-  - docker build -t Vineeth97/multi-client ./client
-  - docker build -t Vineeth97/multi-nginx ./nginx
-  - docker build -t Vineeth97/multi-server ./server
-  - docker build -t Vineeth97/multi-worker ./worker
+  - docker build -t vineeth97/multi-client ./client
+  - docker build -t vineeth97/multi-nginx ./nginx
+  - docker build -t vineeth97/multi-server ./server
+  - docker build -t vineeth97/multi-worker ./worker
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push Vineeth97/multi-client
-  - docker push Vineeth97/multi-nginx
-  - docker push Vineeth97/multi-server
-  - docker push Vineeth97/multi-worker
+  - docker push vineeth97/multi-client
+  - docker push vineeth97/multi-nginx
+  - docker push vineeth97/multi-server
+  - docker push vineeth97/multi-worker
